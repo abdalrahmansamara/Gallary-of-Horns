@@ -85,6 +85,7 @@ $('select').on('change', function () {
     else if ($newValue2 === 'default') {
       all = [];
       getJSONdata(currentPage);
+      $('select:eq(0)').prop('selectedIndex', 0).val();
       //check if we are in the first or the second page
     }
   }
