@@ -1,7 +1,14 @@
 div{
-    display: inline-block;
-    width: 17%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 22%;
+    height: 360px;
     margin: 30px 30px;
+    /* grid-template-rows: 60px 200px 100px; */
+    padding: 20px;
+    border: 1px solid black;
 }
 
 img{
