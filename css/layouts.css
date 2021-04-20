@@ -1,12 +1,11 @@
 div{
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
     align-items: center;
     justify-content: center;
-    width: 22%;
+    width: 200px;
     height: 360px;
     margin: 30px 30px;
-    /* grid-template-rows: 60px 200px 100px; */
+    grid-template-rows: 60px 200px 100px;
     padding: 20px;
     border: 1px solid black;
 }
