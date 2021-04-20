@@ -8,11 +8,17 @@ div{
     grid-template-rows: 60px 200px 100px;
     padding: 20px;
     border: 1px solid black;
+    transition: 1s;
+}
+div:hover {
+    transform: scale(1.1);
+    background-color: rgb(252, 242, 230);
 }
 
 img{
     height: 200px;
     width: 200px;
+    border-radius: 5px;
 }
 #photo-template{
     display: none;
