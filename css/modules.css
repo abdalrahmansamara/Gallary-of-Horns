@@ -1,6 +1,6 @@
 h1 {
     display: block;
-    font-size: 2em;
+    font-size: 80px !important;
     margin-block-start: 0.67em;
     margin-block-end: 0.67em;
     margin-inline-start: 0px;
@@ -22,3 +22,22 @@ p {
 div img{
     width: 100%;
 }
+h1{
+    margin: 40px auto;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 90px;
+    text-align: center;
+    letter-spacing: 5px;
+}
+select {
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    outline: none;
+    -webkit-appearance: none;
+    font: 14px 'Open Sans', sans-serif;
+    cursor: pointer;
+    min-width: 256px;
+    padding: 8px 16px;
+    border-radius: 3px;
+  }

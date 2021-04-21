@@ -3,6 +3,8 @@ let selectElements = [];
 let all = [];
 let currentPage = '1';
 let currentSort = 'default';
+
+// the constructor Horn for handling data coming from the AJAX file
 const Horn = function(obj) {
   this.title = obj.title;
   this.url = obj.image_url;
@@ -11,14 +13,19 @@ const Horn = function(obj) {
   this.keyword = obj.keyword;
   all.push(this);
 };
+
+// Prototype to render the Data one by one to the html file
 Horn.prototype.render = function () {
   let template = $('#photo-template').html();
   let rendering = Mustache.render(template,this);
   $('main').append(rendering);
 };
 
+
+// Render the Date when Entering the page for the first time
 $.ajax('data/page-1.json') .then(renderData);
 
+// Render data from the AJAX file directly
 function renderData(data) {
   selectElements = [];
   data.forEach(obj => {
@@ -29,12 +36,15 @@ function renderData(data) {
   generateTheList();
 }
 
+
+// Render the "all" array, whenever called
 function renderTheAll() {
   all.forEach(objec =>{
     objec.render();
   });
 }
 
+// generate the dropdown list
 function generateTheList() {
   selectElements.forEach((keyword,idx) => {
     let newOption = ` <option value="${keyword}" id = "${idx}">${keyword}</option>`;
@@ -42,7 +52,7 @@ function generateTheList() {
   });
 }
 
-
+// Event listener for both the buttons, in case if the user decided to chenge the page
 $('button').on('click', function() {
   let newPage = this.id;
   if(newPage === currentPage) {return true;}
@@ -55,6 +65,8 @@ $('button').on('click', function() {
   getJSONdata(newPage);
 });
 
+
+// change the JSON file to get data, in case of changing the page
 function getJSONdata (newPage) {
   if(newPage === '1'){
     $.ajax('data/page-1.json')
@@ -66,7 +78,7 @@ function getJSONdata (newPage) {
   }
 }
 
-
+// Event listener for both the "select" tags, in order to start filtering
 $('select').on('change', function () {
   let $newValue = $('select:eq(0)').val();
   let $newValue2 = $('select:eq(1)').val();
@@ -86,11 +98,10 @@ $('select').on('change', function () {
       all = [];
       getJSONdata(currentPage);
       $('select:eq(0)').prop('selectedIndex', 0).val();
-      //check if we are in the first or the second page
     }
   }
 
-
+  //handling the (display: none) process
   for(let i = 0; i < len; i++ ){
     if ($newValue === 'default') {
       $('div').removeClass('displays');
@@ -106,6 +117,7 @@ $('select').on('change', function () {
   }
 });
 
+// sort by Horns function
 function sortByHorns (arr) {
   arr.sort((a,b)=> {
     if(a.horns > b.horns)
@@ -115,6 +127,8 @@ function sortByHorns (arr) {
   });
   return arr;
 }
+
+// sort by Title function
 function sortByTitle (arr) {
   arr.sort((a,b) => {
     if (a.title.toUpperCase() < b.title.toUpperCase()){
@@ -124,8 +138,3 @@ function sortByTitle (arr) {
   });
   return arr;
 }
-
-// $('select:eq(1)').on('change', function () {
-//   let $newValue2 = $('select:eq(1)').val();
-//   console.log($newValue2);
-// });

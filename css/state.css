@@ -1,0 +1,17 @@
+select:hover, select:active {
+    border-color: #85929D;
+  }
+  div:hover {
+    animation-name: example;
+    transform: scale(1.1);
+    transform-origin: 50%;
+    }
+    
+    @keyframes example {
+        50% {
+            background-color: rgb(225, 255, 177);
+          }
+          100% {
+            background-color: rgb(122, 253, 253);
+          }
+      }
