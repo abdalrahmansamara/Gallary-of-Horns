@@ -60,7 +60,9 @@ $('button').on('click', function() {
   $('main').empty();
   $('select:eq(0)').empty();
   $('select:eq(0)').append(`<option value="default">Filter by Keyword</option>`);
+  $('select:eq(0)').prop('selectedIndex', 0).val();
   $('select:eq(1)').prop('selectedIndex', 0).val();
+  currentSort = 'default';
   all = [];
   getJSONdata(newPage);
 });
