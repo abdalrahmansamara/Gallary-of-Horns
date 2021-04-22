@@ -7,13 +7,16 @@ div{
     margin: 30px 30px;
     grid-template-rows: 60px 200px 100px;
     padding: 20px;
-    border: 1px solid black;
+    outline: none;
     transition: 1s;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+    
 }
-div:hover {
-    transform: scale(1.1);
-    background-color: rgb(252, 242, 230);
-}
+
 
 img{
     height: 200px;
@@ -25,4 +28,23 @@ img{
 }
 .displays {
     display: none;
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+}
+.btn-1, .btn-2 {
+    letter-spacing: 1px;
+    width: 120px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    transition: ease-out 0.3s;
+    font-size: 15px;
+    outline: none;
 }
